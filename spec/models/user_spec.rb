@@ -8,5 +8,5 @@ RSpec.describe User, type: :model do
 end
 
 RSpec.describe User, "associations", type: :model do
-  it { should has_many(:order) }
+  it { should have_many(:orders) }
 end

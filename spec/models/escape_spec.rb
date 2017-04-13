@@ -13,4 +13,7 @@ end
 RSpec.describe Escape, "associations", type: :model do
   it { should have_many(:escape_categories) }
   it { should have_many(:categories).through(:escape_categories) }
+
+  it { should have_many(:order_escapes) }
+  it { should have_many(:orders).through(:order_escapes) }
 end

@@ -22,3 +22,42 @@ $success: #008000;
 .success {
   color: $success;
 }
+
+
+* {
+  box-sizing: border-box;
+}
+
+.login {
+  background-color: rgba(191, 216, 227, .4);
+  border: 1px solid rgba(191, 216, 227, .8);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.login > div {
+  padding: 5px 0;
+}
+
+input[type="submit"] {
+  border: 1px solid rgba(191, 216, 227, .8);
+  border-radius: 5px;
+  color: #fff;
+  background-color: rgb(54, 134, 169);
+  font-size: 110%;
+}
+
+input[type="text"],
+input[type="password"] {
+  border: 1px solid rgba(191, 216, 227, .8);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 110%;
+  width: 20%;
+}
+
+.actions a {
+  font-size: 80%;
+}
