@@ -9,6 +9,8 @@ EscapeCategory.create(category_id: 1, escape_id: 1)
 EscapeCategory.create(category_id: 2, escape_id: 2)
 
 User.create(username: "booradley", password: "asecretpassword", password_confirmation: "asecretpassword")
+User.create(username: "iadmin", password: "ipass", password_confirmation: "ipass", role: 1)
+
 
 User.last.orders.create(status: "paid", total: 200.00)
 User.last.orders.create(status: "completed", total: 202.00)

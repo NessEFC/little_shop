@@ -13,7 +13,7 @@ RSpec.feature "As a logged-in user," do
     visit orders_path
 
     expect(page).to have_content("Order #1")
-    expect(page).to have_content("April 15, 2017")
+    expect(page).to have_content("April 16, 2017")
 
     click_on("View Order")
 

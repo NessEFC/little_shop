@@ -1,0 +1,11 @@
+<% if current_user.id.to_s != params[:id] %>
+  <p> You cannot modify any other user's account data </p>
+<% else %>
+  <h2>Edit your account</h2>
+  <%= form_for(current_user, url: admin_user_path) do |f|%>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.submit "Edit Account"%>
+  <% end %>
+<% end %>
