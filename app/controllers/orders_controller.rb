@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-    @user = current_user
+    @orders = Order.where(user_id: current_user)
   end
 
   def show
@@ -28,21 +28,22 @@ class OrdersController < ApplicationController
     @order_items = @cart.find_escapes
   end
 
-  def update 
+  def update
     @order = Order.find(params[:id])
-   
+
     if @order.update(status: params[:status])
       flash[:success] = "Order status updated"
-      redirect_to admin_dashboard_path 
-    else 
+      redirect_to admin_dashboard_path
+    else
       flash[:alert] = "Nopes"
     end
-  end 
-  
+  end
+
   # private
 
   # def order_params
   #   binding.pry
   #   params.require(:order).permit(:status)
   # end
+
 end

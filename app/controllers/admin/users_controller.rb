@@ -1,8 +1,8 @@
 class Admin::UsersController < Admin::BaseController
-  
-  def show 
-  end 
-  
+
+  def show
+  end
+
   def edit
     @user = current_user
   end
@@ -27,9 +27,10 @@ class Admin::UsersController < Admin::BaseController
       render :edit
     end
   end
-  
+
   private
   def admin_params
-    params.require(:user).permit(:username)  
+    params.require(:user).permit(:username)
   end
-end 
+end
+

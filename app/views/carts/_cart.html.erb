@@ -1,0 +1,8 @@
+<% if current_user && @escapes.empty? %>
+  <h5><%= "Your cart is empty" %></h5>
+  <p>Cart Total: $0.00</p>
+<% elsif !current_user && @escapes.empty? %>
+  <h5><%= "Your cart is empty" %></h5>
+  <p>Cart Total: $0.00</p>
+  <%= link_to "Login or Create Account to Proceed", login_path%>
+<% end %>

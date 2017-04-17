@@ -1,0 +1,5 @@
+<%= render partial: 'shared/user_profile' %>
+
+<% if current_user.admin? && (@display_user == current_user) %>
+<%= link_to "Edit account", edit_admin_user_path(@display_user) %>
+<% end %>

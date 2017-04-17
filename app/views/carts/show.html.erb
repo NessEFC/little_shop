@@ -1,9 +1,8 @@
 <!-- if else for empty cart, link back to escapes  -->
 <!--  all added escapes listed here -->
 <% if @escapes.empty? %>
-<h5><%= "Your cart is empty" %></h5>
+  <%= render partial: "cart" %>
 <% else %>
-
   <div class="cart items">
     <% @escapes.each do |escape| %>
       <h4><%= escape.name %></h4>
@@ -18,17 +17,17 @@
       <%= button_to "Remove Escape", cart_path({escape_id: escape.id}), method: :delete, class: "btn btn-danger" %>
     <% end %>
   </div>
+  <hr>
+    <p>Cart Total: $<%= @cart.total_price %></p>
+  <% if current_user %>
+    <%= button_to "Checkout", orders_path, method: :post, class: "btn btn-green", params: {total: @cart.total_price}%>
+  <% else %>
+    <%= link_to "Login or Create Account to Proceed", login_path%>
+  <% end %>
+
  <% end %>
 
-<hr>
-<% if @escapes.empty? %>
-  <p>Cart Total: $0.00</p>
-<% else %>
-  <p>Cart Total: $<%= @cart.total_price %></p>
-<% end %>
 
-<% if current_user %>
-  <%= button_to "Checkout", orders_path, method: :post, class: "btn btn-green", params: {total: @cart.total_price}%>
-<% else %>
-  <%= link_to "Login or Create Account to Proceed", login_path%>
-<% end %>
+
+
+
