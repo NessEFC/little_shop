@@ -23,7 +23,6 @@ $success: #008000;
   color: $success;
 }
 
-
 * {
   box-sizing: border-box;
 }
@@ -57,8 +56,13 @@ $success: #008000;
   color: white;
 }
 
+.img-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
 .cart-total,
-.dammit-marrisa {
+.dammit-marissa {
   text-align: right;
 }
 
@@ -66,6 +70,7 @@ $success: #008000;
   color: red;
   font-size: 20px;
 }
+
 
 
 //------------------------
@@ -82,9 +87,9 @@ $success: #008000;
     border-radius: 4px;
     color: #7e7975;
     box-shadow:
-        0 2px 2px rgba(0,0,0,0.2),        
-        0 1px 5px rgba(0,0,0,0.2),        
-        0 0 0 12px rgba(255,255,255,0.4); 
+        0 2px 2px rgba(0,0,0,0.2),
+        0 1px 5px rgba(0,0,0,0.2),
+        0 0 0 12px rgba(255,255,255,0.4);
 }
 
 .form-2 h1 {
@@ -218,7 +223,7 @@ dt {
   #fff 1px,
   #fff 5%
 );
-  
+
   &:after {
     content: "";
     display: block;
@@ -235,7 +240,7 @@ dt {
   &:hover,
   &:focus {
     &:after {
-       background-color: #aaa; 
+       background-color: #aaa;
     }
   }
 }
@@ -310,4 +315,3 @@ table tr :nth-child(1) {
 .edit-column {
   margin-left: 20px;
 }
-

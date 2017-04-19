@@ -1,14 +1,27 @@
 <h1>Escapes for <%= @category.title %></h1>
-<ul>
+
+<br>
+
   <% @category.escapes.each do |escape| %>
-    <div class="escape">
-      <%= escape.name %>
-        <ul>
-          <li><%= escape.description %></li>
-          <li><%= escape.price %></li>
-          <li><%= escape.city %></li>
-          <li><%= image_tag escape.photo.url(:medium) %></li>
-        </ul>
+  <div class="container">
+    <div class="media col-md-3">
+      <figure class= "pull-left">
+        <br>
+        <%= image_tag escape.photo.url(:medium) %>
+        <br>
+      </figure>
     </div>
+
+    <br>
+
+  <div class="col-md-6">
+    <h4 class="list-group-item-heading"><%= link_to escape.name, escape_path(escape) %></h4>
+        <div class= "list-group_item_text">
+
+          <p>Description: <%= escape.description %></p>
+          <p>Price: $<%= sprintf('%.2f', escape.price) %></p>
+          <p>City: <%= escape.city %></p>
+      </div>
+    </div>
+      </div>
   <% end %>
-</ul>

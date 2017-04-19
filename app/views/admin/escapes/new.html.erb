@@ -1,33 +1,4 @@
 <h2>Create a new escape</h2>
 
-<div class ="make-escape">
 
-<%= form_for(@escape, url: admin_escapes_path, html: {multipart: true}) do |f| %>
-
-<%= f.label :name %>
-<%= f.text_field :name %><br>
-
-<%= f.label :description %>
-<%= f.text_field :description %><br>
-
-<%= f.label :city %>
-<%= f.text_field :city %><br>
-
-<%= f.label :price %>
-<%= f.text_field :price %><br>
-
-<%= f.label :photo %>
-<%= f.file_field :photo %><br>
-
-<%= f.label :category %>
-  <% Category.all.each do |category| %>
-  <div>
-    <%= check_box_tag :category_ids, category.id, @escape.categories.include?(category), :name => 'escape[category_ids][]' %>
-    <%= category.title %>
-  </div>
-  <% end %>
-<%= f.submit %>
-
-<% end %>
-
-</div>
+<%= render partial: "form" %>

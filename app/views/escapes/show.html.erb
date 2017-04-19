@@ -1,12 +1,30 @@
-<h1><%= @escape.name %></h1>
+<h1 class="text-"><%= @escape.name %></h1>
 
-<h3><%= @escape.city %></h3>
+<br>
 
-<%= image_tag @escape.photo.url(:medium) %><br>
-$<%= @escape.format_price %><br>
-<%= @escape.description %>
-<% if @escape.active %>
-  <%= button_to "Book Escape", cart_path(escape_id: @escape.id), class: "btn btn-danger" %><br>
-<% else %>
-   <p>Escape Retired</p>
-<% end %>
+<div class="container">
+<div class="media col-md-3">
+  <figure class= "pull-left">
+    <%= image_tag @escape.photo.url(:medium) %><br>
+</figure>
+</div>
+
+
+<div class="col-md-6">
+  <div class= "list-group_item_text">
+    <p>Description: <%= @escape.description %></p>
+    <p>Price: $<%= sprintf('%.2f', @escape.price) %></p>
+    <p>City: <%= @escape.city %></p>
+  </div>
+</div>
+
+<div class="col-md-3 text-center">
+    <div class="buttons">
+    <% if @escape.active %>
+    <%= button_to "Book Escape", cart_path(escape_id: @escape.id), class: "btn btn-danger" %><br>
+  <% else %>
+    <p>Escape Retired</p>
+   <% end %>
+  </div>
+</div>
+</div>

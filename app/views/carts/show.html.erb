@@ -4,23 +4,33 @@
   <div class="cart items">
     <% @escapes.each do |escape| %>
       <h4><%= escape.name %></h4>
-      <p><%= image_tag escape.photo, class: :image %></p>
+
+      <div class="img-btn">
+        <p><%= image_tag escape.photo.url %></p>
+
+        <div class="buttons">
+          <%= button_to "Increase Quantity", cart_path({escape_id: escape.id}), method: :put, class: "btn orange-btn", params: {quantity: :increase} %>
+          <%= button_to "Decrease Quantity", cart_path({escape_id: escape.id}), method: :put, class: "btn orange-btn", params: {quantity: :decrease} %>
+          <%= button_to "Remove Escape", cart_path({escape_id: escape.id}), method: :delete, class: "btn btn-danger" %>
+        </div>
+      </div>
+
       <p>City: <%= escape.city %></p>
-      <p>Price: $<%= escape.price %></p>
+      <p>Price: $<%= escape.format_price %></p>
       <p>Description: <%= escape.description %></p>
       <p>Quantity: <%= @cart.quantity(escape.id) %></p>
       <p>Subtotal: $<%= @cart.subtotal(escape) %>
-      <%= button_to "Increase Quantity", cart_path({escape_id: escape.id}), method: :put, class: "btn orange-btn", params: {quantity: :increase} %>
-      <%= button_to "Decrease Quantity", cart_path({escape_id: escape.id}), method: :put, class: "btn orange-btn", params: {quantity: :decrease} %>
-      <%= button_to "Remove Escape", cart_path({escape_id: escape.id}), method: :delete, class: "btn btn-danger" %>
+      <br><br>
     <% end %>
   </div>
   <hr>
-    <p>Cart Total: $<%= @cart.total_price %></p>
-  <% if current_user %>
-    <%= button_to "Checkout", orders_path, method: :post, class: "btn btn-green", params: {total: @cart.total_price}%>
-  <% else %>
-    <%= link_to "Login or Create Account to Proceed", login_path%>
-  <% end %>
 
+  <div class="cart-total">
+    <p>Cart Total: $<%= @cart.total_price %></p>
+    <% if current_user %>
+      <%= button_to "Checkout", orders_path, method: :post, class: "btn btn-green", params: {total: @cart.total_price}%>
+      <% else %>
+      <%= link_to "Login or Create Account to Proceed", login_path%>
+      <% end %>
+</div>
  <% end %>
